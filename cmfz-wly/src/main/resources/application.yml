@@ -1,0 +1,33 @@
+# 配置端口号和项目名
+server:
+  port: 8989
+  context-path: /cmfz
+  jsp-servlet:
+    init-parameters:
+      develoment: true
+# 配置连接池参数
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/cmfz
+    type: com.alibaba.druid.pool.DruidDataSource
+# 配置视图解析器
+  mvc:
+    view:
+      suffix: .jsp
+      prefix: /
+# 配置编码过滤器
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+# 别名和mapper位置
+mybatis:
+  mapper-locations: classpath:/com/baizhi/mapper/*.xml
+  type-aliases-package: com.baizhi.entity
+
+
+
+
