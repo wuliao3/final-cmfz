@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.baizhi.dao.BannerDao">
+    <insert id="addBanner" parameterType="Banner">
+        <selectKey resultType="java.lang.Integer" keyProperty="id" order="BEFORE">
+            select MAX(id) + 1 id FROM banner
+        </selectKey>
+        insert into banner values(${id},#{name},#{picUrl},#{description},#{status},#{createTime},#{url})
+    </insert>
+    <select id="queryAll" resultType="Banner" parameterType="Page">
+        select * from banner limit #{start},#{rowNum}
+    </select>
+    <select id="queryAllCount" resultType="java.lang.Integer">
+        select count(*) from banner
+    </select>
+    <update id="updateById" parameterType="Banner">
+        update banner set description = #{description},status = #{status} where id = #{id}
+    </update>
+    <delete id="deleteById" parameterType="java.lang.Integer">
+        delete from banner where id = #{id}
+    </delete>
+</mapper>
+

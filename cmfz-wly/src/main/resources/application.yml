@@ -4,7 +4,7 @@ server:
   context-path: /cmfz
   jsp-servlet:
     init-parameters:
-      develoment: true
+      development: true
 # 配置连接池参数
 spring:
   datasource:
